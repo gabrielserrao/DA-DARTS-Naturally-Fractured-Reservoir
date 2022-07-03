@@ -10,8 +10,9 @@ import os
 
 # Here the Model class is defined (child-class from DartsModel) in which most of the data and properties for the
 # simulation are defined, e.g. for the reservoir/physics/sim_parameters/etc.
-class Model(DartsModel):
-    def __init__(self, n_points=64):
+#added the fracture apperture as a parameter for the data assimilation method
+class ModelDA(DartsModel):
+    def __init__(self, n_points=64, frac_aper = 1e-3):
         """
         Class constructor of Model class
         :param n_points: number of discretization points for the parameter space
@@ -50,7 +51,7 @@ class Model(DartsModel):
         permy = const_perm  # Matrix permeability in the y-direction [mD]
         permz = const_perm  # Matrix permeability in the z-direction [mD]
         poro = 0.2  # Matrix porosity [-]
-        frac_aper = 1e-3  # Aperture of fracture cells (but also takes a list of apertures for each segment) [m]
+        #frac_aper = 1e-3  # Aperture of fracture cells (but also takes a list of apertures for each segment) [m]
 
         mesh_file = ''
         if self.mesh_type == 'mesh_clean_very_fine':
