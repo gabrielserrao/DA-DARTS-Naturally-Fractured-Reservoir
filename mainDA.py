@@ -177,7 +177,7 @@ csi = 0.99
 #%%
 #Generate the prior ensemble of scalar parameters
 # build random values for fraction of aperture using normal distribution and fract_aper of the true model as mean as mean and 10% as std with seed=1
-Em_frac_aper = np.clip(np.random.normal(1e-3, 0.5*(1e-3), Ne),0.00001,1.0) #cliping to keep only positive numbvers for the frac apertures 
+Em_frac_aper = np.clip(np.random.normal(1e-3, 0.5*(1e-3), Ne),0.0005,0.0015) #cliping to keep only positive numbvers for the frac apertures 
 
 # data colums
 columnsNameList = ['P1 : temperature (K)']
