@@ -32,6 +32,12 @@ class ModelDA(DartsModel):
                 * Moderate (6.7K matrix and 1.2K fracture cells)  ==> mesh_type = 'mesh_clean_moderate'
                 * Very fine (2.7K matrix and 0.7K fracture cells) ==> mesh_type = 'mesh_clean_coarse'
                 * Fine (0.9K matrix and 0.3K fracture cells)      ==> mesh_type = 'mesh_clean_very_coarse'
+                filename    num_fracs    num_mat
+                mesh_3.75    4203        52374
+                mesh_7.5    2148        14676
+                mesh_15        1370        6768
+                mesh_30        713        2734
+                mesh_60     354        1324
     
             - Have two different types of boundary conditions (constant pressure/rate boundary, wells)
                 * Constant pressure/rate boundary             ==> bound_cond = 'const_pres_rate'
