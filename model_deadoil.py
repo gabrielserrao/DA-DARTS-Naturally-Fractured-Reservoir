@@ -52,7 +52,7 @@ class ModelDA(DartsModel):
         self.physics_type = 'dead_oil'
 
         # Some permeability input data for the simulation
-        const_perm = 10
+        self.const_perm = 10
         permx = const_perm  # Matrix permeability in the x-direction [mD]
         permy = const_perm  # Matrix permeability in the y-direction [mD]
         permz = const_perm  # Matrix permeability in the z-direction [mD]
@@ -103,7 +103,7 @@ class ModelDA(DartsModel):
         # Some tuning parameters:
         self.params.first_ts = 1e-6  # Size of the first time-step [days]
         self.params.mult_ts = 8  # Time-step multiplier if newton is converged (i.e. dt_new = dt_old * mult_ts)
-        self.params.max_ts = 20  # Max size of the time-step [days]
+        self.params.max_ts = 10  # Max size of the time-step [days]
         self.params.tolerance_newton = 1e-4  # Tolerance of newton residual norm ||residual||<tol_newt
         self.params.tolerance_linear = 1e-6  # Tolerance for linear solver ||Ax - b||<tol_linslv
         self.params.newton_type = sim_params.newton_local_chop  # Type of newton method (related to chopping strategy?)
