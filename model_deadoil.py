@@ -12,7 +12,7 @@ import os
 # simulation are defined, e.g. for the reservoir/physics/sim_parameters/etc.
 #added the fracture apperture as a parameter for the data assimilation method
 class ModelDA(DartsModel):
-    def __init__(self, n_points=64, frac_aper = 1e-3):
+    def __init__(self, n_points=64, frac_aper = 1e-3, const_perm =10):
         """
         Class constructor of Model class
         :param n_points: number of discretization points for the parameter space
