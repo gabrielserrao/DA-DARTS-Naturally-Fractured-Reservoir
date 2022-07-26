@@ -143,11 +143,12 @@ class ModelDA(DartsModel):
                     # For BHP control in injection well we usually specify pressure and composition (upstream) but here
                     # the method is wrapped such  that we only need to specify bhp pressure (see lambda for more info)
                     w.control = self.physics.new_bhp_water_inj(375)
+                    #w.control = self.physics.new_rate_water_inj(1000) 
 
                 elif self.physics_type == 'geothermal':
                     # Specify both pressure and temperature (since it's upstream for injection well)
                     w.control = self.physics.new_bhp_water_inj(375, 308.15)
-                    # w.control = self.physics.new_rate_water_inj(4800, 308.15)
+                    #w.control = self.physics.new_rate_water_inj(4800, 308.15)
 
             else:
                 # Add controls for production well:
