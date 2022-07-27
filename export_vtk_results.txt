@@ -1,0 +1,21 @@
+# Properties for writing to vtk format:
+# output_directory = 'trial_dir'  # Specify output directory here
+output_directory = 'test_folder0'
+num_wells_tot = 2  # Specify here how much wells are being used
+# Specify here the number of properties you want to extract (properties are based on selected physics, see model):
+tot_properties = 3
+
+# Calculate the size of the properties vector:
+tot_unknws = m_true0.reservoir.unstr_discr.fracture_cell_count + m_true0.reservoir.unstr_discr.matrix_cell_count + num_wells_tot*2
+
+
+# Allocate and store the properties in an array:
+property_array = np.empty((tot_unknws, tot_properties))
+property_array[:, 0] = m_true0.physics.engine.X[:-1:2]
+property_array[:, 1] = m_true0.physics.engine.X[1::2]
+property_array[:m_true0.reservoir.unstr_discr.fracture_cell_count, 2] = aperture_vec(0)
+
+m_true0.cell_property.append('frac_aper')
+
+# Write to vtk using class methods of unstructured discretizer (uses within meshio write to vtk function):
+m_true0.reservoir.unstr_discr.write_to_vtk(output_directory, property_array, m_true0.cell_property, 0)
